@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tip Calculator</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		 .required {
+		 	color: var(--danger);
+		 }
+		 #service option d{
+		 	font-size: 8px;
+		 }
+	</style>
+</head>
+<body>
+	<section class="main">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 mx-auto mt-4">
+					<form>
+					  <div class="form-group">
+					     <label>Total amount of your bill ?<span class="required">*</span></label>
+					     <input type="number" class="form-control" id="bill" placeholder="Enter bill amount in rupees">
+					  </div>
+					  <div class="form-group">
+					     <label>How was the service ? <span class="required">*</span></label>
+					     <select id="service" class="form-control">
+						   <option value="" disabled="" selected="">service</option>
+						   <option value="0">outstanding <span >(25%)</span></option>
+						   <option value="1">good (20%)</option>
+						   <option value="2">it was ok (15%)</option>
+						   <option value="3">bad (10%)</option>
+						   <option value="4">terrible (5%)</option>
+						</select>
+					  </div>
+					  <div class="form-group">
+					     <label>How many people are sharing the bill ?<span class="required">*</span></label>
+					     <input type="number" class="form-control" id="people">
+					  </div>
+					  <button id="calculate" type="button" class="btn btn-info mx-auto d-block">Calculate</button>
+					  <p id="p"></p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript">
+		document.getElementById('calculate').addEventListener('click',()=>{
+				var bill = document.getElementById('bill').value;
+				if (bill == '') {
+					alert("enter bill");
+				} else{
+
+					var service = parseInt(document.getElementById('service').value);
+					var tip = 0;
+					switch (service){
+						case 0: 
+							tip = 0.25*bill;
+							break;
+						case 1: 
+							tip = 0.20*bill;
+							break;
+						case 2: 
+							tip = 0.15*bill;
+							break;
+						case 3: 
+							tip = 0.10*bill;
+							break;
+						case 4: 
+							tip = 0.05*bill;
+							break;	
+						default:
+							tip = 0;				
+					}
+					var share = document.getElementById('people').value;
+					tip = tip/share;
+					alert(`tip ${tip}`);
+				}
+		});
+		
+	</script>
+	<!-- bootstrap js cdn -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>	
+</body>
+</html>

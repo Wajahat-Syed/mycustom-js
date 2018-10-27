@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello Tip Bill</title>
+	<script scr="jquery.min.js"></script>
+	<style type="text/css">
+		body {
+		
+			width: 100%;
+		}
+		.st {
+			position: absolute;
+		}
+		#bdy{
+			margin-top: 120px;
+		}
+	</style>
+</head>
+<body>
+	<!--  for making bill desk -->
+<select id="service">
+	<option value="">Select</option>
+	<option value="0">Terrible</option>
+	<option value="1">Good</option>
+	<option value="2">Amazing</option>
+</select>
+
+<div id="bdy">
+	<p id="p"> </p>
+</div>
+<script type="text/javascript">
+	// $("body").click(function(e) {
+	// 	var t = '<p class="st">hello</p>';
+	// 	var x = e.clientX;
+	// 	var y = e.clientY;
+	// 	$('body').append(t);
+	// });
+	var that = this;
+	document.getElementById('service').addEventListener("change", (t)=> {
+		var val = parseInt(t.target.value);
+	
+		var bill = 1850;
+		var tip = 0;
+		switch (val) {
+			case 0:
+				tip = bill * 1 / 100;
+				break;
+			case 1:
+				tip = bill * 5 / 100;
+				break;
+			case 2:
+				tip = bill * 10 / 100;
+				break;
+			default: 
+			 	tip = 0;
+		}
+		document.getElementById('p').innerHTML= "<h4 style='color:#d6effb;border-radius:4px;display:inline;border:1px solid grey;padding:4px;background-color:black;'>Tip is </h4>"+tip;               //JSON.stringify(tip);
+		console.log("tip", tip);
+
+	});
+
+</script>
+</body>
+</html>

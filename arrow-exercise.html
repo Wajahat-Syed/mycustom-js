@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>arrow exercise</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+		<ul class="list-unstyled">
+			<li data-time="5:16">flex</li>
+			<li data-time="3:16">flex</li>
+			<li data-time="6:16">redux</li>
+			<li data-time="5:11">flex</li>
+			<li data-time="5:46">flex</li>
+			<li data-time="7:16">redux</li>
+			<li data-time="2:18">redux</li>
+			<li data-time="9:14">flex</li>
+			<li data-time="5:46">flex</li>
+			<li data-time="5:33">redux</li>
+			<li data-time="6:02">flex</li>
+			<li data-time="1:56">redux</li>
+		</ul>	
+</body>
+<script type="text/javascript">
+	const items = Array.from(document.querySelectorAll('[data-time]'));
+	console.log(items);
+	const filtered = items
+		.filter((item)=> item.textContent.includes('flex'))
+		.map(item => item.dataset.time)
+		console.log(filtered);
+</script>
+<!-- bootstrap js cdn -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>	
+</body>
+</html>

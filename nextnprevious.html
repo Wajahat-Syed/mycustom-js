@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		input{
+			margin: 20px 0;
+			padding: 10px;
+			width: 60%;
+			font-size: 16px;
+			border-radius: 3px;
+			outline: none;
+			border: 1px solid #333;
+		}
+		.btn{
+			padding:10px 30px;
+			color: white;
+			background-color: #dd5347;
+			border: 1px solid #dd5347;
+			outline: none;
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+<input type="text" id="itr" placeholder="enter iteration">
+<br>
+<br>
+<input type="text" id="num" placeholder="number">
+<br>
+<button class="btn" onclick="previous()" id="prev">previous</button>
+<button class="btn" onclick="next()" id="next">next</button>
+</body>
+<script type="text/javascript">
+		function previous(){
+		let b = document.getElementById('num').value;
+		let a = document.getElementById('itr').value;
+		b = parseFloat(b) - parseFloat(a);
+		document.getElementById('num').value = b;
+	}
+	function next(){
+		let b = document.getElementById('num').value;
+		let a = document.getElementById('itr').value;
+		b = parseFloat(a) + parseFloat(b);
+		document.getElementById('num').value = b;
+	}
+
+</script>
+</html>

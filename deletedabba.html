@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body{
+			width: 60%;
+			margin: 0 auto;
+		}
+		.my{
+			height: 50px;
+			width: 50px;
+			border:1px solid grey;
+			float: left;
+			margin: 5px;
+			box-shadow: 0 0 3px 2px #ddd;
+			border-radius: 5px;
+			text-align: center;
+			line-height: 50px;
+		}
+		#inp,#change{
+			margin: 20px 0;
+			padding: 10px;
+			width: 60%;
+			font-size: 16px;
+			border-radius: 3px;
+			outline: none;
+			border: 1px solid #333;
+		}
+		#dabba{
+			width: 62%;
+		}
+		
+		#btn{
+			padding:10px 30px;
+			color: white;
+			background-color: #dd5347;
+			border: 1px solid #dd5347;
+			outline: none;
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+<input type="text" id="inp" placeholder="Enter number of Boxes..." name="">
+<button id="btn">Add</button>
+<div id="dabba"></div>
+<br><br>
+<div style="clear: both;">
+	<input type="text" id="change" placeholder="Change Color" onkeyup="getfocus()">
+</div>
+</body>
+<script type="text/javascript">
+		let i=1;
+		var n;
+		let div="";
+		document.getElementById('btn').addEventListener("click",function(){
+			n = document.getElementById('inp').value;
+			for (i=1; i<=n; i++){
+				 div +="<div class='my'>"+i+"</div>";
+				 document.getElementById('dabba').innerHTML=div;
+				 
+
+			}
+		});
+
+		function getfocus() {
+			if (event.keyCode == 13){
+	  			let ch= document.getElementById('change').value;
+	  			for(k=0; k<=n; k++ ){
+	  				if(ch == k+1){
+	  					if (ch%2==0) {
+	  					document.getElementsByClassName('my')[k].style.background="green";
+	  					document.getElementsByClassName('my')[k].style.color="#fff";
+	  					}
+	  					else{
+	  					document.getElementsByClassName('my')[k].style.background="#dd5347";
+	  					document.getElementsByClassName('my')[k].style.color="#fff";
+
+	  					}
+	  				}
+	  			}
+	  			
+
+			}
+		}
+
+</script>
+</html>

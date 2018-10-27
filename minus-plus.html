@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	var arr = prompt("enter an array of +ve and -ve numbers");
+	console.log(arr);
+	var number = arr.split(",");
+	var countngv = 0;
+	var countptv = 0;
+	var countzro = 0;
+	for(let i = 0 ;i < number.length; i++){
+		if(number[i] < 0){
+			countngv++;
+		} else if( number [i] > 0 ){
+			countptv++;
+		} else {
+			countzro++;
+		}
+	}
+	countngv = countngv/number.length;
+	countngv = countngv.toFixed(6);
+	console.log(countngv);
+	countzro = countzro/number.length;
+	countzro = countzro.toFixed(6);
+	console.log(countzro);
+	countptv = countptv/number.length;
+	countptv = countptv.toFixed(6);
+	console.log(countptv);	
+</script>
+</body>
+</html>

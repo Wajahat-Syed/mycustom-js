@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.my{
+			height: 50px;
+			width: 50px;
+			border:1px solid grey;
+			float: left;
+			margin: 5px;
+			box-shadow: 0 0 3px 2px #ddd;
+			border-radius: 5px;
+			text-align: center;
+			line-height: 50px;
+		}
+	</style>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	let div="";
+	for( let i=1;i<=100;i++){
+		 div +="<div class='my'>" +i+ "</div>";
+	}
+	document.body.innerHTML=div;
+	let l = document.getElementsByClassName('my');
+	for(let j=0; j<l.length;j++){
+		document.getElementsByClassName('my')[j].addEventListener("click",function(){
+		//console.log(this.innerHTML);
+		if (this.innerHTML % 2 == 0) {
+			this.style.background="green";
+			this.innerHTML="even";
+		}
+		else{
+			this.style.background="red";
+			this.innerHTML="odd";
+		}
+	});
+}
+</script>
+</html>

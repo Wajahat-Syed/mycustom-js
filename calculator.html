@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>calculator</title>
+	<link rel="stylesheet" type="text/css" href="calculator.css">
+</head>
+<body>
+	<div class="box">
+		<input type="text" id="input" onkeyup="getfocus()">
+		<div class="buttons">
+			<button class="operand" id="a"  onclick="myClick('1')">1</button>
+			<button class="operand" id="b"  onclick="myClick('2')">2</button>
+			<button class="operand" id="c"  onclick="myClick('3')">3</button>
+			<button class="operand" id="d"  onclick="myClick('4')">4</button>
+			<button class="operand" id="e"  onclick="myClick('5')">5</button>
+			<button class="operand" id="fe"  onclick="myClick('6')">6</button>
+			<button class="operand" id="g"  onclick="myClick('7')">7</button>
+			<button class="operand" id="h"  onclick="myClick('8')">8</button>
+			<button class="operand" id="i"  onclick="myClick('9')">9</button>
+			<button class="operand" id="i"  onclick="myClick('.')">.</button>
+			<button class="opt" id="10" onclick="myClick('+')">+</button>
+			<button class="opt" id="11" onclick="myClick('-')">-</button>
+			<button class="opt" id="12" onclick="myClick('*')">*</button>
+			<button class="opt" id="13" onclick="myClick('/')">/</button> 
+			<button class="opt" id="del" onclick="myDel()">DEL</button> 
+			<!-- add functionality to DEL (H.W) -->
+		</div>	
+		<button id="result" onclick="calculate()">=</button>
+	</div>
+	<p id="p"></p>
+</body>
+<script type="text/javascript">
+	let temp="";
+	function myClick(va) {
+		let val=va;
+		temp=temp+val;
+		document.getElementById('input').value=temp;
+	}
+	function calculate() {
+		temp = eval(temp);
+		document.getElementById('input').value=temp;
+	}
+	function myDel() {  
+		let q= temp;
+		let z = q.split('');
+        z.pop();
+        temp= z.join("");
+        document.getElementById('input').value= temp;
+	}
+	function getfocus() {
+		if (event.keyCode == 13){
+	  		console.log("enter");
+		}
+	}
+
+</script>
+</html>
+
+<!-- write code on enter key(keycode:13) , blur and focus; -->

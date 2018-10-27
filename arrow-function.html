@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	const names = ['w','z','a'];
+
+	const fullNames = names.map(function(name){
+		return `${name} Ali`; 
+	});
+
+
+	const fullNames2 = names.map((name)=>{
+		return `${name} Ali`; 
+	});
+	// whne you dont have more than one aprameter there is no need to keep the function paramter inside the bracket .
+	const fullNames3 = names.map(name=>{
+		return `${name} Ali`;
+	});
+	// one liner arrow function.
+	const fullNames4 = names.map(name=>`${name} Ali`);
+
+	// when dont have any element inside your array .
+	const fullNames5 = names.map(()=>`Ali`);
+
+	console.log(fullNames5);
+
+	// named function 
+	function sayName(name){
+		alert(`Hello ${name}`);
+	}
+	sayName("wajaat");
+
+	// arrow functions are anunymous
+	const sayMyName = (name)=> { alert(`Hello ${name}`) };
+
+	sayMyName("wajahat");
+
+
+
+	
+</script>
+</body>
+</html>

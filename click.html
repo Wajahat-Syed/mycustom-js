@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#main{
+			position: relative;
+			width: 100%;
+			height: 500px;
+			border: 1px solid #333;
+		}
+		.my{
+			margin: 20px 0;
+			padding: 10px;
+			width: 110px;
+			font-size: 16px;
+			border-radius: 3px;
+			outline: none;
+			border: 1px solid #333;
+		}
+		#inandbtn{
+			
+		}
+		.btn{
+			padding:7px 20px;
+			border-radius: 3px;
+			color: white;
+			background-color: #dd5347;
+			border: 1px solid #dd5347;
+			outline: none;
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+<div id="main" onclick="getcordinates(event)">
+	<div id="in"></div>
+	<div id="butn"></div>
+</div>
+</body>
+<script type="text/javascript">
+	function getcordinates(event){
+		let x = event.clientX;
+		let y = event.clientY;
+		console.log(x,y);
+		let inp = "<input type='text' class='my' >";
+		document.getElementById('in').innerHTML=inp;
+		document.getElementById('in').style.marginTop=y+"px";
+		document.getElementById('in').style.marginLeft=x+"px";
+
+		let buton = document.createElement("button").
+		document.getElementById('in').appendChild(buton);
+
+		//document.getElementById('butn').innerHTML=buton;
+		//document.getElementById('butn').style.marginTop=y+"px";
+		//document.getElementById('butn').style.marginLeft=x+"px";
+	}
+</script>
+</html>

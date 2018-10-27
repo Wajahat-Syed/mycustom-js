@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body><br><br>
+	<div class="col-xs-5">
+		<input placeholder="Enter amount..." id="inp" type="text" class="form-control" name="" autofocus="">
+	</div>
+	<div class="col-xs-8">
+	<br>
+		<div class="alert alert-success result"> Total Amount is: <span id="res"></span></div>
+		<div class="alert alert-danger error"></div>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".error, .result").hide();
+			$("#inp").keyup(function(event) {
+				if (event.keyCode == '13') {
+					var val = $("#inp").val();
+					if (val >= 500) {
+						if (val % 500 == 0) {
+							$(".error").hide(300);
+							$(".result").show(500);
+							var remainder = val / 500;
+							var result = parseInt(val) + (remainder * 100);
+							$("#res").html(result);
+							$("#inp").val("");
+						} else {
+							$(".result").hide(500);
+							$(".error").show(500).html("Amount should the multiple of 500");
+						}
+					} else {
+						$(".error").show(300).html("Amount shold be greater than 500");
+					}
+				}
+			});
+		});
+	</script>
+</body>
+</html>

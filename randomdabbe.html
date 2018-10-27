@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>random</title>
+	<style type="text/css">
+		body{
+			box-shadow: 0 0 49px 3px rgba(0,0,0,0.15);
+			width: 61%;
+
+			margin: 20px auto;
+			padding: 30px;
+		}
+		body::after {
+    		content: "";
+    		clear: both;
+    		display: table;
+		}
+		.my{
+			height: 50px;
+			width: 80px;
+			border:1px solid grey;
+			float: left;
+			margin: 5px;
+			box-shadow: 0 0 3px 2px #ddd;
+			border-radius: 5px;
+			text-align: center;
+			line-height: 50px;
+		}
+	</style>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	let div="";
+	for(let i=1; i<=100; i++)
+	{
+		div +="<div class='my'>"+i+"</div> ";
+		document.body.innerHTML=div;
+	}
+	for(let k=0; k<20;k++){
+		var a = Math.ceil(Math.random() * 100);
+		console.log(a);
+		document.getElementsByClassName('my')[a].innerHTML="Wajahat";
+		document.getElementsByClassName('my')[a].style.background="#dd5347";
+		document.getElementsByClassName('my')[a].style.color="#fff";
+	}
+</script>
+</html>

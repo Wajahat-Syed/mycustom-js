@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		.main{
+			width: 20%;
+			margin: auto;
+		}
+		.main #result{
+			background: #044D81;
+			padding: 10px 20px;
+			height: 60px;
+			border-radius: 10px;
+			border: 2px solid #428BCA;
+
+			color:#fff;
+		}
+		.main .btn-primary{
+			background:  #044D81;
+		}
+		.main h3{
+			font-weight: 100;
+			color:  #044D81;
+		}
+		.main label{
+			color:  #044D81;
+		}
+	</style>
+</head>
+<body>
+<div class="main mt-4">
+	<div class="form-check form-check-inline">
+	  <input class="form-check-input" type="checkbox" id="bit4">
+	  <label class="form-check-label" >8</label>
+	</div>
+	<div class="form-check form-check-inline">
+	  <input class="form-check-input" type="checkbox" id="bit3">
+	  <label class="form-check-label" >4</label>
+	</div>
+	<div class="form-check form-check-inline">
+	  <input class="form-check-input" type="checkbox" id="bit2">
+	  <label class="form-check-label" >2</label>
+	</div>
+	<div class="form-check form-check-inline">
+	  <input class="form-check-input" type="checkbox" id="bit1">
+	  <label class="form-check-label" >1</label>
+	  <button class="btn btn-primary ml-4" onclick="convert()">convert</button>
+	</div>	
+      <h3 class="text-center mt-4">Result</h3>
+	  <h4 id="result" class="text-center mt-2"></h4>
+</div>
+<script type="text/javascript">
+function convert(){
+	var bit4 = document.getElementById('bit4');
+	var bit3 = document.getElementById('bit3');
+	var bit2 = document.getElementById('bit2');
+	var bit1 = document.getElementById('bit1');
+	// bit 4
+	if(bit4.checked == true){
+		bit4 = 1;
+	} else{
+		bit4 = 0;
+	}
+	// bit 3
+	if(bit3.checked == true){
+		bit3 = 1;
+	} else{
+		bit3 = 0;
+	}
+	// bit 2
+	if(bit2.checked == true){
+		bit2 = 1;
+	} else{
+		bit2 = 0;
+	}
+	// bit 1
+	if(bit1.checked == true){
+		bit1 = 1;
+	} else{
+		bit1 = 0;
+	}
+	console.log(bit4,bit3,bit2,bit1);
+	var total = bit4*8 + bit3*4 + bit2*2 + bit1*1;
+	console.log(total);
+	document.getElementById("result").innerHTML = total; 
+}	
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

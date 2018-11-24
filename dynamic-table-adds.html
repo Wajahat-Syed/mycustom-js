@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		.form{
+			padding: 20px 10px;
+			border-radius: 8px;
+			box-shadow: 0px 1px 5px rgba(0,0,0,0.5);
+		}
+
+	</style>
+</head>
+<body>
+
+<div class="container">
+	<div class="row mt-4">
+		<div class="form col-md-4 ">
+		  <div class="form-group">
+		    <label>Name</label>
+		    <input type="text" class="form-control" id="name" placeholder="John Doe">
+		    <label>Phone</label>
+			<input type="number" class="form-control" id="phone" placeholder="9785572264">
+		    <label>About</label>
+			<input type="text" class="form-control" id="biod" placeholder="Waj is cool a guy, always ready to help you.">
+		    <label>Github</label>
+			<input type="text" class="form-control" id="git" placeholder="Wajahat-Syed/mycustom-js">
+			<button id="click" class="btn btn-success mt-2 text-center" onclick="dynamic()">Click</button>
+		  </div>
+		</div>
+
+		<div id="bio" class="col-md-8 ">
+			<table class="table">
+			    <thead class="thead-dark">
+				    <tr>
+				      <th scope="col">Name</th>
+				      <th scope="col">Phone</th>
+				      <th scope="col">Description</th>
+				      <th scope="col">Github</th>
+				    </tr>
+				</thead>
+				<tbody id="tbody"></tbody>
+			</table>	
+		</div>
+	</div>
+</div>
+
+
+	<script type="text/javascript">
+		function dynamic(){
+			var name = document.getElementById('name').value;
+			var phone = document.getElementById('phone').value;
+			var biod = document.getElementById('biod').value;
+			var git = document.getElementById('git').value;
+			console.log(name,phone,biod);
+			var i ;
+			var div = "";
+				div += `<tr>
+					      <th scope="row">${name}</th>
+					      <td>${phone}</td>
+					      <td>${biod}</td>
+					      <td><a href="https://github.com/${git}">https://github.com/${git}</a></td>
+					    </tr>
+						`;
+						console.log(div);
+				document.getElementById("tbody").innerHTML += div;			
+		}
+	</script>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

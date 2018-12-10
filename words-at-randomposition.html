@@ -1,0 +1,43 @@
+<!-- put some words in an array and they should appear at random position 
+	 every time the page is refreshed. -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<style type="text/css">
+		.my{
+			font-family: 'Lato', sans-serif;
+			font-size: 16px;
+			color: black;
+			text-align: center;
+			margin: 10px;
+			letter-spacing: 1px;
+			border-radius: 18px;
+			padding: 3px;
+			width: 80px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	const fruit =["apple","bnana","orange","kancha","cricket","baseball","basketball","ball","bat","random","school","this","world","is","against","the","people","who","want","to","spread","peace","apple","bnana","orange","kancha","cricket","baseball","basketball","ball","bat","random","school","this","world","is","against","the","people","who","want","to","spread","peace","apple","bnana","orange","kancha","cricket","baseball","basketball","ball","bat","random","school","this","world","is","against","the","people","who","want","to","spread","peace","bnana","orange","kancha","cricket","baseball","basketball","ball","bat","random","school","this","world","is","against","the","people","who","want","to","spread","peace","apple","bnana","orange","kancha","cricket","baseball","basketball","ball","bat","random","school","this","world","is","against","the","people","who","want","to","spread","peace","apple"];
+	let div = "";
+	for(var i = 0; i < fruit.length; i++){
+		var a = Math.ceil(Math.random() * fruit.length);
+		div+=`<div class='my' > 
+			     ${fruit[a]} 
+			  </div>`;
+		document.body.innerHTML = div;
+	}
+	// for( var j = 0; j < fruit.length; j++){
+		// document.getElementsByClassName('my')[a].innerHTML = fruit[i];
+		// var color = Math.ceil(Math.random() * 1500 );
+		// document.getElementsByClassName('my')[a].style.backgroundColor = "#"+color+"febcd";
+	//}
+
+</script>
+</html>

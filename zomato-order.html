@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+
+	<!-- googlefonts -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		body{
+			font-family: 'Source Sans Pro', sans-serif;
+		}
+		:root{
+			--light-green:#59CF23;
+		}
+		.menu{
+			width: 20%;
+			justify-content: space-between;
+			display: flex;
+		}
+		.menu #item{
+			color:#555;
+			font-weight: 600;
+		}
+		.menu #item p{
+			font-weight: 100;
+			font-size: 14px;
+		}
+		.menu #add {
+			align-items: center;
+			display: flex;
+			justify-content: space-around;
+			height: 30px;
+			margin-top: 8px;
+			font-weight: bold;
+			padding: 5px;
+			border: 1px solid #319A5B;
+			border-radius: 5px;
+			color:  #319A5B;
+			width: 65px;
+		}
+		.fas{
+			font-size: 8px;
+		}
+		.fa-minus{
+			display: none;
+			color: #555;
+		}
+		#bill{
+			display: flex;
+			justify-content: space-between;
+			padding: 8px;
+			color: white;
+			font-size: 20px;
+			font-weight: 900;
+			letter-spacing: 1px;
+			transition: 0.1s;
+			width: 20%;
+			background-color: var(--light-green);
+		}
+		#item .fa-circle{
+			color: #319A5B;
+			margin-right: 5px;
+			font-size: 7px;
+			border: 1px solid;
+			padding: 2px 1px 1px;
+
+		}
+	</style>	
+</head>
+<body>
+<section class="menu mt-4 ml-4">
+	<div id="item"><i class="fas fa-circle"></i><span> Paneer Tikka </span><br><p>&#x20B9; 199</p></div>
+	<div id="add"><i class="fas fa-minus"></i><span id="count">Add</span> <i class="fas fa-plus"></i></div>
+</section>
+	<div id="bill" class="ml-4"><span>Bill</span><span id="total-amount"></span></div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+<script type="text/javascript">
+	var item = 0;
+	document.querySelector(".fa-plus").addEventListener('click',function(){
+		item++;
+		document.querySelector("#count").innerHTML = item;
+		document.querySelector(".fa-minus").style.display = "block";
+			console.log(item * 199);
+		bill(item);
+	}); 
+	document.querySelector(".fa-minus").addEventListener('click',function(){
+		if(item < 1){
+			document.querySelector("#count").innerHTML = "Add";
+			document.querySelector(".fa-minus").style.display = "none";
+
+		} else{
+			item--;
+			document.querySelector("#count").innerHTML = item;
+		}
+		bill(item);
+	});
+	function bill(items){
+		const bill = items * 199;
+		document.querySelector("#total-amount").innerHTML = `&#x20B9; ${bill}`; 
+	}
+	
+</script>
+</html>

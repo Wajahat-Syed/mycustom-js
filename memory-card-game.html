@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		* {
+		  padding: 0;
+		  margin: 0;
+		  box-sizing: border-box;
+		}
+
+		body {
+		  height: 100vh;
+		  display: flex;
+		  background: #060AB2;
+		}
+
+		.memory-game {
+		  width: 640px;
+		  height: 640px;
+		  margin: auto;
+		  display: flex;
+		  flex-wrap: wrap;
+		  perspective: 1000px;
+		}
+
+		.memory-card {
+		  width: calc(25% - 10px);
+		  height: calc(33.333% - 10px);
+		  margin: 5px;
+		  position: relative;
+		  transform: scale(1);
+		  transform-style: preserve-3d;
+		  transition: transform .5s;
+		  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+		}
+
+		.memory-card:active {
+		  transform: scale(0.97);
+		  transition: transform .2s;
+		}
+
+		.memory-card.flip {
+		  transform: rotateY(180deg);
+		}
+
+		.front-face,
+		.back-face {
+		  width: 100%;
+		  height: 100%;
+		  padding: 20px;
+		  position: absolute;
+		  border-radius: 5px;
+		  background: #1C7CCC;
+		  backface-visibility: hidden;
+		}
+
+		.front-face {
+		  transform: rotateY(180deg);
+		}
+	</style>
+</head>
+<body>
+ <section class="memory-game">
+    <div class="memory-card" data-framework = "react">
+      <img class="front-face" src="react.png" alt="Aurelia" />
+      <img class="back-face" src="js.png" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework = "ember">
+      <img class="front-face" src="ember.png" alt="Aurelia" />
+      <img class="back-face" src="js.png" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework = "vue">
+      <img class="front-face" src="vue.png" alt="Vue" />
+      <img class="back-face" src="js.png" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework = "laravel">
+      <img class="front-face" src="laravel.png" alt="Vue" />
+      <img class="back-face" src="js.png" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework = "react">
+      <img class="front-face" src="react.png" alt="Angular" />
+      <img class="back-face" src="js.png" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework = "vue">
+      <img class="front-face" src="vue.png" alt="Angular" />
+      <img class="back-face" src="js.png" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework = "laravel">
+      <img class="front-face" src="laravel.png" alt="Ember" />
+      <img class="back-face" src="js.png" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework = "ember">
+      <img class="front-face" src="ember.png" alt="Ember" />
+      <img class="back-face" src="js.png" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework = "react">
+      <img class="front-face" src="react.png" alt="Angular" />
+      <img class="back-face" src="js.png" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework = "vue">
+      <img class="front-face" src="vue.png" alt="Angular" />
+      <img class="back-face" src="js.png" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework = "laravel">
+      <img class="front-face" src="laravel.png" alt="Ember" />
+      <img class="back-face" src="js.png" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework = "ember">
+      <img class="front-face" src="ember.png" alt="Ember" />
+      <img class="back-face" src="js.png" alt="JS Badge" />
+    </div>
+  </section>
+<script type="text/javascript">
+	// cornercase
+	// if we doubleclick a card it matches a dataset values and 
+	// that is true. card remains flipped.to resolve it i am placing a condition if(this === firstcard) return;
+	const cards = document.querySelectorAll('.memory-card');
+
+	let flippedCard = false;
+	let firstCard;
+	let secondCard;
+	cards.forEach(card => card.addEventListener('click', flipCard));
+
+	function flipCard() {
+	  if (this === firstCard) return;	
+	  this.classList.add('flip');
+	  if(!flippedCard){
+	  	flippedCard = true;
+	  	firstCard = this;
+	  } 
+	  else{
+	  	flippedCard = false;
+	  	secondCard = this;
+	  	// console.log(firstCard.dataset.framework);
+	  	// console.log(secondCard.dataset.framework);
+	  	checkForMatch();
+	  }
+	}
+
+	function checkForMatch(){
+		let isMatch = firstCard.dataset.framework == secondCard.dataset.framework; 
+		isMatch ? disableCards() : unflipCards();
+		
+	}
+	function disableCards(){
+  		firstCard.removeEventListener('click',flipCard);
+  		secondCard.removeEventListener('click',flipCard);
+  		
+	  	resetBoard();
+	}
+	function unflipCards(){
+		setTimeout(() =>{
+		  		firstCard.classList.remove('flip');
+		  		secondCard.classList.remove('flip');
+	  			resetBoard();
+	  		}, 1000);
+	}
+	function resetBoard(){
+		flippedCard = false;
+		[firstcard, secondCard] = [null,null];
+	}
+	// immediatelyinvoked function that executes right after it's definition
+	(function shuffle(){
+		cards.forEach(card => {
+			let randomposition = Math.floor(Math.random() *11);
+			card.style.order = randomposition;
+		});
+	})();
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
